@@ -71,18 +71,18 @@
                     aliqua. Ut enim ad minim
                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-                <div class="members-list">
-                    <div class="member-item">
+                <div class="row members-list">
+                    <div class="col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="assets/img/slider/slider2.jpg" alt="" class="member-img">
 
                     </div>
-                    <div class="member-item">
+                    <div class="col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="assets/img/slider/slider2.jpg" alt="" class="member-img">
 
                     </div>
-                    <div class="member-item">
+                    <div class="col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="assets/img/slider/slider2.jpg" alt="" class="member-img">
 
@@ -106,34 +106,34 @@
                     </ul>
 
                     <!--Places-->
-                    <div class="place-list">
-                        <div class="place-item">
+                    <div class="row place-list">
+                        <div class="col col-third">
                             <img src="assets/img/slider/newyork.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-time">Fri 27 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
                             </div>
 
                         </div>
-                        <div class="place-item">
+                        <div class="col col-third">
                             <img src="assets/img/slider/paris.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">Paris</h3>
                                 <p class="place-time">Sat 28 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
                             </div>
 
                         </div>
-                        <div class="place-item">
+                        <div class="col col-third">
                             <img src="assets/img/slider/sanfran.jpg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">San Francisco</h3>
                                 <p class="place-time">Sun 29 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
                             </div>
 
                         </div>
@@ -149,6 +149,31 @@
             <div class="content-section">
                 <h2 class="section-heading">CONTACT</h2>
                 <p class="section-sub-heading">Fan? Drop a note!</p>
+                <div class="row contact-content">
+                    <div class="col col-haft contact-info">
+                        <p><i class="ti-location-pin"></i>Chicago,US</p>
+                        <p><i class="ti-mobile"></i>Phone: +00 151515</p>
+                        <p><i class="ti-email"></i>Email: mail@mail.com</p>
+                    </div>
+                    <div class="col col-haft contact-form">
+                        <form action="">
+                            <div class="row">
+                                <div class="col colhafl">
+                                    <input type="text" name="" placeholder="Name" id="" class="form-control">
+                                </div>
+                                <div class="col colhafl">
+                                    <input type="email" name="" placeholder="Email" id="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-full">
+                                    <input type="text" name="" placeholder="Messege" id="" class="form-control">
+                                </div>
+                            </div>
+                            <input type="submit" value="SEND">
+                        </form>
+                    </div>
+                </div>
 
             </div>
 
@@ -162,5 +187,70 @@
         </div>
 
     </div>
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close">
+                <i class="ti-close"></i>
+            </div>
+            <header class="modal-header">
+                <i class="modal-heading-icon ti-bag"></i>
+                Tickets
+
+            </header>
+            <div class="modal-body">
+                <label for="ticket-quantity" class="modal-label">
+                    <i class="ti-shopping-cart"></i>
+                    Tickets, $15 per person
+                </label>
+                <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
+
+                <label for="ticket-email" class="modal-label">
+                    <i class="ti-user"></i>
+                    Send To
+                </label>
+                <input id="ticket-email" type="text" class="modal-input" placeholder="Enter email...">
+
+               <button id="buy-tickets">
+                    Pay <i class="ti-check"></i>
+
+               </button>   
+
+            </div>
+            <footer class="modal-footer">
+                <p class="modal-help">Need <a href="">help?</a>  </p>
+            </footer>
+        </div>
+    </div>
+    <script>
+        const buyBtns = document.querySelectorAll('.js-buy-ticket')
+        const modal = document.querySelector('.js-modal')
+        const modalContainer = document.querySelector('.js-modal-container')
+        const modalClose = document.querySelector('.js-modal-close')
+
+        //hàm hiển thị modal mua vé (thêm class open vào modal)
+        function showBuyTickets() {
+            modal.classList.add('open')
+
+        }
+        //hàm ẩn modal mua vé(gỡ bỏ class open của modal)
+        function hideBuyTickets() {
+                modal.classList.remove('open')
+
+         }
+         //lặp qua từng thẻ button và nghe hành vi click
+
+        for(const buyBtn of buyBtns) {
+            buyBtn.addEventListener('click',showBuyTickets )
+        }
+        //nghe hành vi click vào button close
+
+        modalClose.addEventListener('click',hideBuyTickets)
+
+        modal.addEventListener('click',hideBuyTickets)
+        modalContainer.addEventListener('click',function(event){
+            event.stopPropagation()
+        })
+
+    </script>
 
 </html>
