@@ -30,6 +30,7 @@ html {
     display: inline-block;
     margin-top: 15px;
     border: none;
+    text-align: center;
 }
 
 .btn:hover {
@@ -58,7 +59,7 @@ html {
 .col-full {
     width: 100%;
 }
-.col-haft {
+.col-half {
     width: 50%;
 }
 .mt-8 {
@@ -66,6 +67,9 @@ html {
 }
 .mt-16 {
     margin-top: 16px !important;
+}
+.mt-32 {
+    margin-top: 32px !important;
 }
 #main {}
 
@@ -77,6 +81,7 @@ html {
     left: 0;
     right: 0;
     z-index: 1;
+    
 }
 
 #nav {
@@ -149,12 +154,16 @@ html {
 #nav .nav-arrow-down {
     font-size: 12px;
 }
-
+#header .mobile-menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+#header .mobile-menu-btn,
 #header .search-btn {
     float: right;
-    padding: 0 20px;
-
-
+    padding: 0 21px;
 }
 
 #header .search-btn:hover {
@@ -162,7 +171,15 @@ html {
     background-color: #f44336;
 
 }
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;
+}
 
+#header .mobile-menu-btn:hover .menu-icon {
+    color: #000;
+}
+
+#header .menu-icon,
 #header .search-icon {
     color: #fff;
     font-size: 20px;
@@ -206,9 +223,12 @@ html {
 
 #content .content-section {
     width: 800px;
+    max-width: 100%;
     padding: 64px 0 112px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
 
 }
 
@@ -235,7 +255,7 @@ html {
 }
 
 #content .members-list {
-    margin-top: 48px;
+    margin-top: 32px;
     /* overflow: hidden; */
 
 }
@@ -290,7 +310,7 @@ html {
 
 /* Places */
 .place-list {
-    margin-top: 32px ;
+    margin-top: 16px ;
     
     
 }
